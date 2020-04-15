@@ -16,6 +16,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: 
-        docker build . --file Dockerfile --tag ifreecomm/fluentd:v1.10.1
+        docker build . --file Dockerfile --tag fluentd:latest
+        docker tag fluentd:latest ifreecomm/fluentd:v1.10.1
         docker login -u kangliqi -p ${{ secrets.DOCKERHUB_TOKEN }}
         docker push docker push ifreecomm/fluentd:v1.10.1
